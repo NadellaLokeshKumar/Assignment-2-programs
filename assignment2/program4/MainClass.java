@@ -1,12 +1,19 @@
+/*Write a program to store student records in a map. 
+a. Key of the map will be custom class named "StudentId" and value will be "StudentDetail". Details of "StudentId" and "StudentDetail" classes are given below. 
+b. Add at-least 10 records in the map. 
+c. Sort based on studentId (year then dept then id)	
+*/
+
 package com.ito.assignment2.program4;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 public class MainClass {
-
-	public static void main(String[] args) {
-		TreeMap<StudentId, StudentDetail> lhm = new TreeMap<StudentId, StudentDetail>(new SortByYear());
+	
+	static TreeMap<StudentId, StudentDetail> lhm = new TreeMap<StudentId, StudentDetail>(new SortByYear());
+	public static TreeMap<StudentId, StudentDetail> studentDetails() {
+		
 		StudentId student1 = new StudentId("EEE2", 4, 101);
 		StudentId student2 = new StudentId("CSE1", 3, 102);
 		StudentId student3 = new StudentId("MECH3", 2, 104);
@@ -39,7 +46,11 @@ public class MainClass {
 		lhm.put(student8, details8);
 		lhm.put(student9, details9);
 		lhm.put(student10, details10);
-		
+		return lhm;
+	}
+
+	public static void main(String[] args) {
+		MainClass.studentDetails();
 		for (Map.Entry<StudentId, StudentDetail> lm : lhm.entrySet()) {
 			System.out.println(lm.getKey()+" : "+lm.getValue());
 			System.out.println();
